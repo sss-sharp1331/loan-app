@@ -1,5 +1,13 @@
-.emp-det
-{
-  border: 3px solid #555;
+
+.class-1{
+  max-width: 50%;
+  margin-left: 1%;
+}
+.class-2{
+  max-width: 50%;
+  float: right;
 }
 
+.bt-5{
+  float: right;
+}
