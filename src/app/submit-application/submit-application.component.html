@@ -1,13 +1,13 @@
 <h1 class="p-3"> Submit Application</h1>
 <div class="row">
-  <form action="" method="post">
+  <form [formGroup]="applicationForm" (ngSubmit)="onSubmit()">
   <div class="row">
 
   <div class="col p-2 class-1">
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">First Name</label>
         <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="First Name" name="firstName">
+        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="First Name" formControlName="firstName">
         </div>
       </div>
   </div>
@@ -15,7 +15,7 @@
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Address Line 1</label>
         <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Address Line 1" name="aDL1">
+        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Address Line 1" formControlName="addressLine1">
         </div>
       </div>
   </div>
@@ -28,7 +28,7 @@
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Middle Name</label>
         <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Middle Name" name="middleName">
+        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Middle Name" formControlName="middleName">
         </div>
       </div>
   </div>
@@ -36,7 +36,7 @@
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Address Line 2</label>
         <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Address Line 2" name="aDL2">
+        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Address Line 2" formControlName="addressLine2">
         </div>
       </div>
   </div>
@@ -49,7 +49,7 @@
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Last Name </label>
         <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Last Name" name="lastName">
+        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Last Name" formControlName="lastName">
         </div>
       </div>
   </div>
@@ -57,7 +57,7 @@
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">City</label>
         <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="City" name="city">
+        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="City" formControlName="city">
         </div>
       </div>
   </div>
@@ -70,7 +70,7 @@
      <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">DOB</label>
         <div class="col-sm-8">
-        <input type="date" class="form-control class-1" id="autoSizingInput" placeholder="DOB" name="dateOfBirth" >
+        <input type="date" class="form-control class-1" id="autoSizingInput" placeholder="DOB" formControlName="dateOfBirth" >
         </div>
       </div>
   </div>
@@ -78,7 +78,7 @@
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">State</label>
         <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="State" name="state">
+        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="State" formControlName="state">
         </div>
       </div>
   </div>
@@ -90,7 +90,7 @@
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Marital Status</label>
         <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Marital Status" name="maritalStatus">
+        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Marital Status" formControlName="maritalStatus">
         </div>
       </div>
   </div>
@@ -98,7 +98,7 @@
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Postal Code</label>
         <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Postal Code" name="postalCode">
+        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Postal Code" formControlName="postalCode">
         </div>
       </div>
   </div>
@@ -111,7 +111,7 @@
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">SSN Number</label>
         <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="SSN Number" name="sSNNumber">
+        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="SSN Number" formControlName="ssn">
         </div>
       </div>
   </div>
@@ -119,7 +119,7 @@
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Home Phone</label>
         <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Home Phone" name="homePhone">
+        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Home Phone" formControlName="homeNo">
         </div>
       </div>
   </div>
@@ -132,7 +132,7 @@
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Loan Amount</label>
         <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Loan Amount" name="loanAmount">
+        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Loan Amount" formControlName="amount">
         </div>
       </div>
   </div>
@@ -140,7 +140,7 @@
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Office Phone</label>
         <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Office Phone" name="officePhone">
+        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Office Phone" formControlName="officeNo">
         </div>
       </div>
   </div>
@@ -153,7 +153,7 @@
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Loan Purpose</label>
         <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Loan Purpose" name="loanPurpose">
+        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Loan Purpose" formControlName="purpose">
         </div>
       </div>
   </div>
@@ -161,7 +161,7 @@
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Mobile</label>
         <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Mobile" name="mobile">
+        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Mobile" formControlName="mobileNo">
         </div>
       </div>
   </div>
@@ -174,7 +174,7 @@
   <div class="form-group row">
     <label for="inputEmail3" class="col-sm-2 col-form-label">Description</label>
       <div class="col-sm-8">
-      <textarea class="form-control class-1" id="autoSizingInput" rows="3" name="description"></textarea>
+      <textarea class="form-control class-1" id="autoSizingInput" rows="3" formControlName="description"></textarea>
     </div>
   </div>
   </div>
@@ -183,7 +183,7 @@
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">E-Mail</label>
         <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="E-mail" name="email">
+        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="E-mail" formControlName="email">
         </div>
       </div>
   </div>
@@ -198,7 +198,7 @@
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Employer Name</label>
         <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Name" name="employerName">
+        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Name" formControlName="currEmployerName">
         </div>
       </div>
   </div>
@@ -206,10 +206,10 @@
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Work Experience</label>
         <div class="col-sm-2">
-          <input type="text" class="form-control" id="inputEmail3" placeholder="Year" name="workExpTo">
+          <input type="text" class="form-control" id="inputEmail3" placeholder="Year" formControlName="workExpYear">
         </div>
         <div class="col-sm-2">
-           <input type="text" class="form-control" id="inputEmail3" placeholder="Months" name="workExpFrom">
+           <input type="text" class="form-control" id="inputEmail3" placeholder="Months" formControlName="workExpMonth">
         </div>
       </div>
   </div>
@@ -222,7 +222,7 @@
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Annual Salary</label>
         <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Annual Salary" name="annualSalary">
+        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Annual Salary" formControlName="annualSalary">
         </div>
       </div>
   </div>
@@ -230,7 +230,7 @@
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Designation</label>
         <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Designation" name="designation">
+        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Designation" formControlName="designation">
         </div>
       </div>
   </div>
@@ -244,7 +244,7 @@
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Address Line 1</label>
         <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Address Line 1" name="emp_ADL1">
+        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Address Line 1" formControlName="empAddressLine1">
         </div>
       </div>
   </div>
@@ -259,7 +259,7 @@
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Address Line 2</label>
         <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Address Line 2" name="emp_ADL2">
+        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Address Line 2" formControlName="empAddressLine2">
         </div>
       </div>
   </div>
@@ -274,7 +274,7 @@
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">City</label>
         <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="City" name="emp_City">
+        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="City" formControlName="empCity">
         </div>
       </div>
   </div>
@@ -289,7 +289,7 @@
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">State</label>
         <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="State" name="emp_State">
+        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="State" formControlName="empState">
         </div>
       </div>
   </div>
@@ -305,7 +305,7 @@
       <div class="form-group row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Postal Code</label>
         <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Postal Code" name="emp_PostalCode">
+        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Postal Code" formControlName="empPostalCode">
         </div>
       </div>
   </div>
@@ -314,22 +314,9 @@
   </div>
 
   </div>
-<div class="row">
-
-  <div class="col p-2 class-1">
-      <div class="form-group row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">ID</label>
-        <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Postal Code" name="id">
-        </div>
-      </div>
-  </div>
-<div class="col p-2 class-2">
-</div>
-</div>
   <div class="row">
     <div class="col-12">
-      <button type="submit" class="btn btn-primary p-3 m-3 bt-5">Cancel</button>
+      <a type="button" href="./" class="btn btn-primary p-3 m-3 bt-5">Cancel</a>
       <button type="submit" class="btn btn-primary p-3 m-3 bt-5">Submit</button>
     </div>
   </div>
