@@ -12,9 +12,8 @@
               class="form-control class-1" id="autoSizingInput" placeholder="First Name" formControlName="firstName">
             <div class="class-1"
               *ngIf="applicationForm.get('firstName')?.invalid && applicationForm.get('firstName')?.touched">
-              <small class="text-danger" *ngIf="applicationForm.get('firstName')?.errors?.required">First name is
-                required</small>
-              <small class="text-danger" *ngIf="applicationForm.get('firstName')?.errors?.maxlength">First name should
+              <small class="text-danger" *ngIf="applicationForm.get('firstName')?.errors?.required">Required</small>
+              <small class="text-danger" *ngIf="applicationForm.get('firstName')?.errors?.maxlength">Should
                 not be more than 255 characters</small>
             </div>
           </div>
@@ -30,10 +29,8 @@
               formControlName="addressLine1">
             <div class="class-1"
               *ngIf="applicationForm.get('addressLine1')?.invalid && applicationForm.get('addressLine1')?.touched">
-              <small class="text-danger" *ngIf="applicationForm.get('addressLine1')?.errors?.required">Address line is
-                required</small>
-              <small class="text-danger" *ngIf="applicationForm.get('addressLine1')?.errors?.maxlength">Address line
-                should
+              <small class="text-danger" *ngIf="applicationForm.get('addressLine1')?.errors?.required">Required</small>
+              <small class="text-danger" *ngIf="applicationForm.get('addressLine1')?.errors?.maxlength">Should
                 not be more than 255 characters</small>
             </div>
           </div>
@@ -48,8 +45,10 @@
         <div class="form-group row">
           <label for="staticEmail" class="col-sm-2 col-form-label">Middle Name</label>
           <div class="col-sm-8">
-            <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Middle Name"
+            <input type="text" [ngClass]="{errorBox:this.applicationForm.get('middleName')?.invalid && this.applicationForm.get('middleName')?.touched}" class="form-control class-1" id="autoSizingInput" placeholder="Middle Name"
               formControlName="middleName">
+            <small class="text-danger class-1" *ngIf="applicationForm.get('middleName')?.invalid && applicationForm.get('middleName')?.touched">Should
+                not be more than 255 characters</small>
           </div>
         </div>
       </div>
@@ -57,8 +56,10 @@
         <div class="form-group row">
           <label for="staticEmail" class="col-sm-2 col-form-label">Address Line 2</label>
           <div class="col-sm-8">
-            <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Address Line 2"
+            <input type="text" [ngClass]="{errorBox:this.applicationForm.get('addressLine2')?.invalid && this.applicationForm.get('addressLine2')?.touched}" class="form-control class-1" id="autoSizingInput" placeholder="Address Line 2"
               formControlName="addressLine2">
+              <small class="text-danger class-1" *ngIf="applicationForm.get('addressLine2')?.invalid && applicationForm.get('addressLine2')?.touched">Should
+                not be more than 255 characters</small>
           </div>
         </div>
       </div>
@@ -71,8 +72,14 @@
         <div class="form-group row">
           <label for="staticEmail" class="col-sm-2 col-form-label">Last Name </label>
           <div class="col-sm-8">
-            <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Last Name"
+            <input type="text" [ngClass]="{errorBox:this.applicationForm.get('lastName')?.invalid && this.applicationForm.get('lastName')?.touched}" class="form-control class-1" id="autoSizingInput" placeholder="Last Name"
               formControlName="lastName">
+              <div class="class-1"
+              *ngIf="applicationForm.get('lastName')?.invalid && applicationForm.get('lastName')?.touched">
+              <small class="text-danger" *ngIf="applicationForm.get('lastName')?.errors?.required">Required</small>
+              <small class="text-danger" *ngIf="applicationForm.get('lastName')?.errors?.maxlength">Should
+                not be more than 255 characters</small>
+            </div>
           </div>
         </div>
       </div>
@@ -80,8 +87,14 @@
         <div class="form-group row">
           <label for="staticEmail" class="col-sm-2 col-form-label">City</label>
           <div class="col-sm-8">
-            <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="City"
+            <input type="text" [ngClass]="{errorBox:this.applicationForm.get('city')?.invalid && this.applicationForm.get('city')?.touched}" class="form-control class-1" id="autoSizingInput" placeholder="City"
               formControlName="city">
+              <div class="class-1"
+              *ngIf="applicationForm.get('city')?.invalid && applicationForm.get('city')?.touched">
+              <small class="text-danger" *ngIf="applicationForm.get('city')?.errors?.required">Required</small>
+              <small class="text-danger" *ngIf="applicationForm.get('city')?.errors?.maxlength">Should
+                not be more than 255 characters</small>
+            </div>
           </div>
         </div>
       </div>
@@ -94,8 +107,9 @@
         <div class="form-group row">
           <label for="staticEmail" class="col-sm-2 col-form-label">DOB</label>
           <div class="col-sm-8">
-            <input type="date" class="form-control class-1" id="autoSizingInput" placeholder="DOB"
+            <input type="date" [ngClass]="{errorBox:this.applicationForm.get('dateOfBirth')?.invalid && this.applicationForm.get('dateOfBirth')?.touched}" class="form-control class-1" id="autoSizingInput" placeholder="DOB"
               formControlName="dateOfBirth">
+              <small class="text-danger class-1" *ngIf="this.applicationForm.get('dateOfBirth')?.invalid && this.applicationForm.get('dateOfBirth')?.touched">Required</small>
           </div>
         </div>
       </div>
@@ -103,8 +117,14 @@
         <div class="form-group row">
           <label for="staticEmail" class="col-sm-2 col-form-label">State</label>
           <div class="col-sm-8">
-            <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="State"
+            <input type="text" [ngClass]="{errorBox:this.applicationForm.get('state')?.invalid && this.applicationForm.get('state')?.touched}" class="form-control class-1" id="autoSizingInput" placeholder="State"
               formControlName="state">
+              <div class="class-1"
+              *ngIf="applicationForm.get('state')?.invalid && applicationForm.get('state')?.touched">
+              <small class="text-danger" *ngIf="applicationForm.get('state')?.errors?.required">Required</small>
+              <small class="text-danger" *ngIf="applicationForm.get('state')?.errors?.maxlength">Should
+                not be more than 255 characters</small>
+            </div>
           </div>
         </div>
       </div>
@@ -116,16 +136,16 @@
         <div class="form-group row">
           <label for="staticEmail" class="col-sm-2 col-form-label">Marital Status</label>
           <div class="col-sm-8">
-            <select type="text" class="form-select class-1" id="autoSizingInput"
+            <select class="form-select class-1"  [ngClass]="{errorBox:this.applicationForm.get('maritalStatus')?.invalid && this.applicationForm.get('maritalStatus')?.touched}" id="autoSizingInput"
               formControlName="maritalStatus">
-              <option hidden>Choose one</option>
+              <option value="" selected hidden>Choose one</option>
               <option>Single</option>
               <option>Married</option>
               <option>Separated</option>
               <option>Divorced</option>
               <option>Widowed</option>
             </select>
-            <small class="text-danger" *ngIf="applicationForm.get('maritalStatus')?.invalid && applicationForm.get('maritalStatus')?.touched">Required</small>
+            <small class="text-danger class-1" *ngIf="applicationForm.get('maritalStatus')?.invalid && applicationForm.get('maritalStatus')?.touched">Required</small>
           </div>
         </div>
       </div>
@@ -133,9 +153,14 @@
         <div class="form-group row">
           <label for="staticEmail" class="col-sm-2 col-form-label">Postal Code</label>
           <div class="col-sm-8">
-            <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Postal Code"
+            <input type="text"  [ngClass]="{errorBox:this.applicationForm.get('postalCode')?.invalid && this.applicationForm.get('postalCode')?.touched}" class="form-control class-1" id="autoSizingInput" placeholder="Postal Code"
               formControlName="postalCode">
-          </div>
+            <div class="class-1" *ngIf="applicationForm.get('postalCode')?.invalid" >
+              <small class="text-danger" *ngIf="applicationForm.get('postalCode')?.errors?.required  && applicationForm.get('postalCode')?.touched" >Required</small>
+              <small class="text-danger" *ngIf="applicationForm.get('postalCode')?.errors?.pattern" >Should contain exactly 5 digits</small>
+            </div>
+            
+           </div>
         </div>
       </div>
 
@@ -147,17 +172,22 @@
         <div class="form-group row">
           <label for="staticEmail" class="col-sm-2 col-form-label">SSN Number</label>
           <div class="col-sm-8">
-            <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="SSN Number"
+            <input type="text"  [ngClass]="{errorBox:this.applicationForm.get('ssn')?.invalid && this.applicationForm.get('ssn')?.touched}" class="form-control class-1" id="autoSizingInput" placeholder="SSN Number"
               formControlName="ssn">
+            <small class="text-danger class-1" *ngIf="applicationForm.get('ssn')?.errors?.required && applicationForm.get('ssn')?.touched">Required</small>
           </div>
         </div>
       </div>
       <div class="col p-2 class-2">
         <div class="form-group row">
-          <label for="staticEmail" class="col-sm-2 col-form-label">Home Phone</label>
+          <label for="staticEmail" [ngClass]="{errorBox:this.applicationForm.get('homeNo')?.invalid && this.applicationForm.get('homeNo')?.touched}" class="col-sm-2 col-form-label">Home Phone</label>
           <div class="col-sm-8">
             <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Home Phone"
               formControlName="homeNo">
+              <div class="class-1" *ngIf="applicationForm.get('homeNo')?.invalid" >
+                <small class="text-danger" *ngIf="applicationForm.get('homeNo')?.errors?.required  && applicationForm.get('homeNo')?.touched" >Required</small>
+                <small class="text-danger" *ngIf="applicationForm.get('homeNo')?.errors?.pattern" >Should contain exactly 10 digits</small>
+              </div>
           </div>
         </div>
       </div>
@@ -170,8 +200,12 @@
         <div class="form-group row">
           <label for="staticEmail" class="col-sm-2 col-form-label">Loan Amount</label>
           <div class="col-sm-8">
-            <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Loan Amount"
+            <input type="text" [ngClass]="{errorBox:this.applicationForm.get('homeNo')?.invalid && this.applicationForm.get('homeNo')?.touched}" class="form-control class-1" id="autoSizingInput" placeholder="Loan Amount"
               formControlName="amount">
+              <div class="class-1" *ngIf="applicationForm.get('amount')?.invalid && applicationForm.get('amount')?.touched" >
+                <small class="text-danger" *ngIf="applicationForm.get('amount')?.errors?.required" >Required</small>
+                <small class="text-danger" *ngIf="applicationForm.get('amount')?.errors?.pattern" >Should be a valid decimal number</small>
+              </div>
           </div>
         </div>
       </div>
