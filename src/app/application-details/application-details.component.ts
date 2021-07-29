@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { RetrieveService } from '../services/retrieve.service';
+import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 
 @Component({
   selector: 'app-application-details',
   templateUrl: './application-details.component.html',
-  styleUrls: ['./application-details.component.css']
+  styleUrls: ['./application-details.component.css'],
+  providers: [Location, {provide: LocationStrategy, useClass: PathLocationStrategy}]
 })
 
 
@@ -15,7 +17,7 @@ export class ApplicationDetailsComponent implements OnInit {
   applicationDetails:any;
   id:string= "";
   gotData:boolean = false;
-  constructor(private route: ActivatedRoute,private rs:RetrieveService,private fb:FormBuilder) { }
+  constructor(private route: ActivatedRoute,private rs:RetrieveService,private fb:FormBuilder,private loc:Location) { }
 
   applicationForm:FormGroup = this.fb.group({
     firstName: [''],
@@ -48,6 +50,10 @@ export class ApplicationDetailsComponent implements OnInit {
     empPostalCode : [''],
   });
 
+  goBack() {
+    this.loc.back();
+  }
+
   ngOnInit(){
     this.id = this.route.snapshot.paramMap.get('id')!
     this.rs.getSingleApplication(this.id).subscribe(
@@ -71,7 +77,6 @@ export class ApplicationDetailsComponent implements OnInit {
       error=>console.error("Failed to retreive Data! Error: "+error)
       
     )
-
     
     
   }
