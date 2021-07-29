@@ -34,17 +34,17 @@ export class SubmitApplicationComponent {
     purpose : ['',[Validators.required]],
     mobileNo : ['',[Validators.required,Validators.pattern("^[0-9]{10}$")]],
     description : [''],
-    email : ['',[Validators.required]],
-    currEmployerName : ['',[Validators.required]],
-    workExpYear : [''],
-    workExpMonth : [''],
-    annualSalary : ['',[Validators.required]],
-    designation : [''],
-    empAddressLine1 : ['',[Validators.required]],
-    empAddressLine2 : [''],
-    empCity : ['',[Validators.required]],
-    empState : ['',[Validators.required]],
-    empPostalCode : ['',[Validators.required]]
+    email : ['',[Validators.required,Validators.email]],
+    currEmployerName : ['',[Validators.required,Validators.maxLength(255)]],
+    workExpYear : ['',[Validators.required,Validators.pattern("^[0-9]*$")]],
+    workExpMonth : ['',[Validators.required,Validators.pattern("^[0-9]*$"),Validators.max(12)]],
+    annualSalary : ['',[Validators.required,Validators.pattern("^[0-9]+(\.[0-9])?$")]],
+    designation : ['',Validators.maxLength(255)],
+    empAddressLine1 : ['',[Validators.required,Validators.maxLength(255)]],
+    empAddressLine2 : ['',Validators.maxLength(255)],
+    empCity : ['',[Validators.required,Validators.maxLength(255)]],
+    empState : ['',[Validators.required,Validators.maxLength(255)]],
+    empPostalCode : ['',[Validators.required,Validators.pattern("^[0-9]{5}$")]],
     
 
   });
