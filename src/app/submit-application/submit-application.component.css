@@ -11,3 +11,7 @@
 .bt-5{
   float: right;
 }
+
+.errorBox{
+  border-color: red;
+}

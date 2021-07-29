@@ -1,324 +1,487 @@
 <h1 class="p-3"> Submit Application</h1>
 <div class="row">
-  <form [formGroup]="applicationForm" (ngSubmit)="onSubmit()">
-  <div class="row">
+  <div class="col">
+    <form [formGroup]="applicationForm" (ngSubmit)="onSubmit()" class="form">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group row p-3">
+            <label for="firstName" class="col-sm-3 col-form-label">First Name</label>
+            <div class="col-sm-9">
+              <input type="text"
+                [ngClass]="{errorBox:this.applicationForm.get('firstName')?.invalid && this.applicationForm.get('firstName')?.touched}"
+                class="form-control class-1" id="firstName" placeholder="First Name" formControlName="firstName">
+              <div class="class-1"
+                *ngIf="applicationForm.get('firstName')?.invalid && applicationForm.get('firstName')?.touched">
+                <small class="text-danger" *ngIf="applicationForm.get('firstName')?.errors?.required">Required</small>
+                <small class="text-danger" *ngIf="applicationForm.get('firstName')?.errors?.maxlength">Should
+                  not be more than 255 characters</small>
+              </div>
+            </div>
+          </div>
 
-  <div class="col p-2 class-1">
-      <div class="form-group row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">First Name</label>
-        <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="First Name" formControlName="firstName">
+          <div class="form-group row p-3">
+            <label for="middleName" class="col-sm-3 col-form-label">Middle Name</label>
+            <div class="col-sm-9">
+              <input type="text"
+                [ngClass]="{errorBox:this.applicationForm.get('middleName')?.invalid && this.applicationForm.get('middleName')?.touched}"
+                class="form-control class-1" id="middleName" placeholder="Middle Name" formControlName="middleName">
+              <small class="text-danger class-1"
+                *ngIf="applicationForm.get('middleName')?.invalid && applicationForm.get('middleName')?.touched">Should
+                not be more than 255 characters</small>
+            </div>
+          </div>
+
+
+          <div class="form-group row p-3">
+            <label for="lastName" class="col-sm-3 col-form-label">Last Name </label>
+            <div class="col-sm-9">
+              <input type="text"
+                [ngClass]="{errorBox:this.applicationForm.get('lastName')?.invalid && this.applicationForm.get('lastName')?.touched}"
+                class="form-control class-1" id="lastName" placeholder="Last Name" formControlName="lastName">
+              <div class="class-1"
+                *ngIf="applicationForm.get('lastName')?.invalid && applicationForm.get('lastName')?.touched">
+                <small class="text-danger" *ngIf="applicationForm.get('lastName')?.errors?.required">Required</small>
+                <small class="text-danger" *ngIf="applicationForm.get('lastName')?.errors?.maxlength">Should
+                  not be more than 255 characters</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row p-3">
+            <label for="dateOfBirth" class="col-sm-3 col-form-label">DOB</label>
+            <div class="col-sm-9">
+              <input type="date"
+                [ngClass]="{errorBox:this.applicationForm.get('dateOfBirth')?.invalid && this.applicationForm.get('dateOfBirth')?.touched}"
+                class="form-control class-1" id="dateOfBirth" placeholder="DOB" formControlName="dateOfBirth">
+              <small class="text-danger class-1"
+                *ngIf="this.applicationForm.get('dateOfBirth')?.invalid && this.applicationForm.get('dateOfBirth')?.touched">Required</small>
+            </div>
+          </div>
+
+          <div class="form-group row p-3">
+            <label for="maritalStatus" class="col-sm-3 col-form-label">Marital Status</label>
+            <div class="col-sm-9">
+              <select class="form-select class-1" id="maritalStatus"
+                [ngClass]="{errorBox:this.applicationForm.get('maritalStatus')?.invalid && this.applicationForm.get('maritalStatus')?.touched}"
+                id="autoSizingInput" formControlName="maritalStatus">
+                <option value="" selected hidden>Choose one</option>
+                <option>Single</option>
+                <option>Married</option>
+                <option>Separated</option>
+                <option>Divorced</option>
+                <option>Widowed</option>
+              </select>
+              <small class="text-danger class-1"
+                *ngIf="applicationForm.get('maritalStatus')?.invalid && applicationForm.get('maritalStatus')?.touched">Required</small>
+            </div>
+          </div>
+
+          <div class="form-group row p-3">
+            <label for="ssn" class="col-sm-3 col-form-label">SSN Number</label>
+            <div class="col-sm-9">
+              <input type="text"
+                [ngClass]="{errorBox:this.applicationForm.get('ssn')?.invalid && this.applicationForm.get('ssn')?.touched}"
+                class="form-control class-1" id="autoSizingInput" placeholder="SSN Number" formControlName="ssn"
+                id="ssn">
+              <small class="text-danger class-1"
+                *ngIf="applicationForm.get('ssn')?.errors?.required && applicationForm.get('ssn')?.touched">Required</small>
+            </div>
+          </div>
+
+          <div class="form-group row p-3">
+            <label for="amount" class="col-sm-3 col-form-label">Loan Amount</label>
+            <div class="col-sm-9">
+              <input type="text"
+                [ngClass]="{errorBox:this.applicationForm.get('amount')?.invalid && this.applicationForm.get('amount')?.touched}"
+                class="form-control class-1" id="autoSizingInput" placeholder="Loan Amount" formControlName="amount"
+                id="amount">
+              <div class="class-1"
+                *ngIf="applicationForm.get('amount')?.invalid && applicationForm.get('amount')?.touched">
+                <small class="text-danger" *ngIf="applicationForm.get('amount')?.errors?.required">Required</small>
+                <small class="text-danger" *ngIf="applicationForm.get('amount')?.errors?.pattern">Should be a valid
+                  decimal number</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row p-3">
+            <label for="purpose" class="col-sm-3 col-form-label">Loan Purpose</label>
+            <div class="col-sm-9">
+              <select type="text" class="form-select class-1" id="autoSizingInput" placeholder="Loan Purpose"
+                formControlName="purpose">
+                <option selected hidden value="">Choose one</option>
+                <option>Debt</option>
+                <option>Educational Loan</option>
+                <option>Personal Loan</option>
+                <option>Home Loan</option>
+              </select>
+              <small class="text-danger"
+                *ngIf="applicationForm.get('purpose')?.invalid && applicationForm.get('purpose')?.touched">Required</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-5">
+          <div class="row pb-1">
+
+            <div class="col-12"><b>Address</b></div>
+            <div class="col-12" style="border: 2px solid #a1a1a181;border-radius: 10px;">
+
+              <div class="form-group row pt-2">
+                <label for="addressLine1" class="col-sm-3 col-form-label">Address Line 1</label>
+                <div class="col-sm-9">
+                  <input type="text"
+                    [ngClass]="{errorBox:this.applicationForm.get('addressLine1')?.invalid && this.applicationForm.get('addressLine1')?.touched}"
+                    class="form-control class-1" id="addressLine1" placeholder="Address Line 1"
+                    formControlName="addressLine1">
+                  <div class="class-1"
+                    *ngIf="applicationForm.get('addressLine1')?.invalid && applicationForm.get('addressLine1')?.touched">
+                    <small class="text-danger"
+                      *ngIf="applicationForm.get('addressLine1')?.errors?.required">Required</small>
+                    <small class="text-danger" *ngIf="applicationForm.get('addressLine1')?.errors?.maxlength">Should
+                      not be more than 255 characters</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row pb-1">
+                <label for="addressLine2" class="col-sm-3 col-form-label">Address Line 2</label>
+                <div class="col-sm-9">
+                  <input type="text"
+                    [ngClass]="{errorBox:this.applicationForm.get('addressLine2')?.invalid && this.applicationForm.get('addressLine2')?.touched}"
+                    class="form-control class-1" id="addressLine2" placeholder="Address Line 2"
+                    formControlName="addressLine2">
+                  <small class="text-danger class-1"
+                    *ngIf="applicationForm.get('addressLine2')?.invalid && applicationForm.get('addressLine2')?.touched">Should
+                    not be more than 255 characters</small>
+                </div>
+              </div>
+
+              <div class="form-group row pb-1">
+                <label for="city" class="col-sm-3 col-form-label">City</label>
+                <div class="col-sm-9">
+                  <input type="text"
+                    [ngClass]="{errorBox:this.applicationForm.get('city')?.invalid && this.applicationForm.get('city')?.touched}"
+                    class="form-control class-1" id="city" placeholder="City" formControlName="city">
+                  <div class="class-1"
+                    *ngIf="applicationForm.get('city')?.invalid && applicationForm.get('city')?.touched">
+                    <small class="text-danger" *ngIf="applicationForm.get('city')?.errors?.required">Required</small>
+                    <small class="text-danger" *ngIf="applicationForm.get('city')?.errors?.maxlength">Should
+                      not be more than 255 characters</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row pb-1">
+                <label for="state" class="col-sm-3 col-form-label">State</label>
+                <div class="col-sm-9">
+                  <input type="text"
+                    [ngClass]="{errorBox:this.applicationForm.get('state')?.invalid && this.applicationForm.get('state')?.touched}"
+                    class="form-control class-1" id="state" placeholder="State" formControlName="state">
+                  <div class="class-1"
+                    *ngIf="applicationForm.get('state')?.invalid && applicationForm.get('state')?.touched">
+                    <small class="text-danger" *ngIf="applicationForm.get('state')?.errors?.required">Required</small>
+                    <small class="text-danger" *ngIf="applicationForm.get('state')?.errors?.maxlength">Should
+                      not be more than 255 characters</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row pb-2">
+                <label for="postalCode" class="col-sm-3 col-form-label">Postal Code</label>
+                <div class="col-sm-9">
+                  <input type="text"
+                    [ngClass]="{errorBox:this.applicationForm.get('postalCode')?.invalid && this.applicationForm.get('postalCode')?.touched}"
+                    class="form-control class-1" id="postalCode" placeholder="Postal Code" formControlName="postalCode">
+                  <div class="class-1" *ngIf="applicationForm.get('postalCode')?.invalid">
+                    <small class="text-danger"
+                      *ngIf="applicationForm.get('postalCode')?.errors?.required  && applicationForm.get('postalCode')?.touched">Required</small>
+                    <small class="text-danger" *ngIf="applicationForm.get('postalCode')?.errors?.pattern">Should contain
+                      exactly 5 digits</small>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="row pt-1 pb-1">
+            <div class="col-12"><b>Contact Information</b></div>
+            <div class="col-12" style="border: 2px solid #a1a1a181;border-radius: 10px;">
+
+              <div class="form-group row pt-2">
+                <label for="homeNo"
+                  [ngClass]="{errorBox:this.applicationForm.get('homeNo')?.invalid && this.applicationForm.get('homeNo')?.touched}"
+                  class="col-sm-3 col-form-label">Home Phone</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control class-1" id="homeNo" placeholder="Home Phone"
+                    formControlName="homeNo">
+                  <div class="class-1" *ngIf="applicationForm.get('homeNo')?.invalid">
+                    <small class="text-danger"
+                      *ngIf="applicationForm.get('homeNo')?.errors?.required  && applicationForm.get('homeNo')?.touched">Required</small>
+                    <small class="text-danger" *ngIf="applicationForm.get('homeNo')?.errors?.pattern">Should contain
+                      exactly 10 digits</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row pt-1">
+                <label for="officeNo"
+                  [ngClass]="{errorBox:this.applicationForm.get('officeNo')?.invalid && this.applicationForm.get('officeNo')?.touched}"
+                  class="col-sm-3 col-form-label">Office Phone</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control class-1" id="officeNo" placeholder="Office Phone"
+                    formControlName="officeNo">
+                  <div class="class-1" *ngIf="applicationForm.get('officeNo')?.invalid">
+                    <small class="text-danger" *ngIf="applicationForm.get('officeNo')?.errors?.pattern">Should contain
+                      exactly 10 digits</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row pt-1">
+                <label for="mobileNo"
+                  [ngClass]="{errorBox:this.applicationForm.get('mobileNo')?.invalid && this.applicationForm.get('mobileNo')?.touched}"
+                  class="col-sm-3 col-form-label">Mobile</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control class-1" id="mobileNo" placeholder="Mobile"
+                    formControlName="mobileNo">
+                  <div class="class-1" *ngIf="applicationForm.get('mobileNo')?.invalid">
+                    <small class="text-danger"
+                      *ngIf="applicationForm.get('mobileNo')?.errors?.required  && applicationForm.get('mobileNo')?.touched">Required</small>
+                    <small class="text-danger" *ngIf="applicationForm.get('mobileNo')?.errors?.pattern">Should contain
+                      exactly 10 digits</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row pt-1 pb-1">
+                <label for="email"
+                  [ngClass]="{errorBox:this.applicationForm.get('email')?.invalid && this.applicationForm.get('email')?.touched}"
+                  class="col-sm-3 col-form-label">E-Mail</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control class-1" id="email" placeholder="Email"
+                    formControlName="email">
+                  <div class="class-1" *ngIf="applicationForm.get('email')?.invalid">
+                    <small class="text-danger"
+                      *ngIf="applicationForm.get('email')?.errors?.required  && applicationForm.get('email')?.touched">Required</small>
+                    <small class="text-danger" *ngIf="applicationForm.get('email')?.errors?.email">Should be a valid
+                      Email ID</small>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </div>
       </div>
-  </div>
-  <div class="col p-2 class-2">
-      <div class="form-group row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">Address Line 1</label>
-        <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Address Line 1" formControlName="addressLine1">
+
+      <div class="row p-3">
+        <div class="col-12">
+          <div class="form-group row p-3">
+            <label for="description" class="col-sm-2 col-form-label">Description</label>
+            <div class="col-sm-9">
+              <textarea class="form-control class-1" style="min-width: 100%" id="description" rows="3"
+                formControlName="description"
+                placeholder="Describe the reason why you are applying for the loan"></textarea>
+            </div>
+          </div>
         </div>
       </div>
-  </div>
 
-  </div>
+      <div class="row p-3">
+        <div class="col-12"><b>Employment Details</b></div>
+        <div class="col-12" style="border: 2px solid #a1a1a181;border-radius: 10px;">
+          <div class="row">
+            <div class="col-sm-6">
 
-  <div class="row">
+              <div class="form-group row p-3">
+                <label for="currEmployerName" class="col-sm-3 col-form-label">Employer Name</label>
+                <div class="col-sm-9">
+                  <input type="text"
+                    [ngClass]="{errorBox:this.applicationForm.get('currEmployerName')?.invalid && this.applicationForm.get('currEmployerName')?.touched}"
+                    class="form-control class-1" id="currEmployerName" placeholder="Employer Name"
+                    formControlName="currEmployerName">
+                  <div class="class-1"
+                    *ngIf="applicationForm.get('currEmployerName')?.invalid && applicationForm.get('currEmployerName')?.touched">
+                    <small class="text-danger"
+                      *ngIf="applicationForm.get('currEmployerName')?.errors?.required">Required</small>
+                    <small class="text-danger" *ngIf="applicationForm.get('currEmployerName')?.errors?.maxlength">Should
+                      not be more than 255 characters</small>
+                  </div>
+                </div>
+              </div>
 
-  <div class="col p-2 class-1">
-      <div class="form-group row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">Middle Name</label>
-        <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Middle Name" formControlName="middleName">
+              <div class="form-group row p-3">
+                <label for="annualSalary" class="col-sm-3 col-form-label">Annual Salary</label>
+                <div class="col-sm-9">
+                  <input type="text"
+                    [ngClass]="{errorBox:this.applicationForm.get('annualSalary')?.invalid && this.applicationForm.get('annualSalary')?.touched}"
+                    class="form-control class-1" id="annualSalary" placeholder="Annual Salary"
+                    formControlName="annualSalary">
+                  <div class="class-1"
+                    *ngIf="applicationForm.get('annualSalary')?.invalid && applicationForm.get('annualSalary')?.touched">
+                    <small class="text-danger"
+                      *ngIf="applicationForm.get('annualSalary')?.errors?.required">Required</small>
+                    <small class="text-danger" *ngIf="applicationForm.get('annualSalary')?.errors?.pattern">Should be a
+                      valid decimal number</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+
+              <div class="form-group row p-3">
+                <label for="workExpYear" class="col-sm-2 col-form-label">Work Experience</label>
+                <div class="col-sm-2">
+                  <input
+                    [ngClass]="{errorBox:applicationForm.get('workExpYear')?.invalid && applicationForm.get('workExpYear')?.touched}"
+                    type="text" class="form-control" id="workExpYear" placeholder="Year" formControlName="workExpYear">
+
+                  <div class="class-1"
+                    *ngIf="(applicationForm.get('workExpYear')?.invalid && applicationForm.get('workExpYear')?.touched) || applicationForm.get('workExpMonth')?.invalid && applicationForm.get('workExpMonth')?.touched">
+                    <small class="text-danger"
+                      *ngIf="(applicationForm.get('workExpMonth')?.errors?.required && applicationForm.get('workExpMonth')?.touched) || (applicationForm.get('workExpYear')?.errors?.required && applicationForm.get('workExpYear')?.touched)">Required<br></small>
+                    <small class="text-danger"
+                      *ngIf="applicationForm.get('workExpMonth')?.errors?.pattern  && applicationForm.get('workExpMonth')?.touched">Month
+                      in number</small>
+                    <small class="text-danger"
+                      *ngIf="applicationForm.get('workExpYear')?.errors?.pattern && applicationForm.get('workExpYear')?.touched">Year
+                      in number</small>
+                  </div>
+                </div>
+                <div class="col-sm-2">
+                  <input
+                    [ngClass]="{errorBox:applicationForm.get('workExpMonth')?.invalid && applicationForm.get('workExpMonth')?.touched}"
+                    type="text" class="form-control" id="workExpMonth" placeholder="Months"
+                    formControlName="workExpMonth">
+                </div>
+              </div>
+
+
+              <div class="form-group row p-3">
+                <label for="designation" class="col-sm-3 col-form-label">Designation</label>
+                <div class="col-sm-9">
+                  <input type="text"
+                    [ngClass]="{errorBox:this.applicationForm.get('designation')?.invalid && this.applicationForm.get('designation')?.touched}"
+                    class="form-control class-1" id="designation" placeholder="Designation"
+                    formControlName="designation">
+                  <div class="class-1"
+                    *ngIf="applicationForm.get('designation')?.invalid && applicationForm.get('designation')?.touched">
+                    <small class="text-danger" *ngIf="applicationForm.get('designation')?.errors?.maxlength">Should
+                      not be more than 255 characters</small>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="row p-3">
+            <div class="row">
+              <div class="col-12">Address</div>
+            </div>
+            <div class="row">
+              <div class="col-1"></div>
+              <div class="col-9">
+
+                <div class="form-group row pt-2">
+                  <label for="addressLine1" class="col-sm-3 col-form-label">Address Line 1</label>
+                  <div class="col-sm-9">
+                    <input type="text"
+                      [ngClass]="{errorBox:this.applicationForm.get('empAddressLine1')?.invalid && this.applicationForm.get('empAddressLine1')?.touched}"
+                      class="form-control class-1" id="empAddressLine1" placeholder="Address Line 1"
+                      formControlName="empAddressLine1">
+                    <div class="class-1"
+                      *ngIf="applicationForm.get('empAddressLine1')?.invalid && applicationForm.get('empAddressLine1')?.touched">
+                      <small class="text-danger"
+                        *ngIf="applicationForm.get('empAddressLine1')?.errors?.required">Required</small>
+                      <small class="text-danger"
+                        *ngIf="applicationForm.get('empAddressLine1')?.errors?.maxlength">Should
+                        not be more than 255 characters</small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group row pt-2">
+                  <label for="empAddressLine2" class="col-sm-3 col-form-label">Address Line 2</label>
+                  <div class="col-sm-9">
+                    <input type="text"
+                      [ngClass]="{errorBox:this.applicationForm.get('empAddressLine2')?.invalid && this.applicationForm.get('empAddressLine2')?.touched}"
+                      class="form-control class-1" id="empAddressLine2" placeholder="Address Line 2"
+                      formControlName="empAddressLine2">
+                    <small class="text-danger class-1"
+                      *ngIf="applicationForm.get('empAddressLine2')?.invalid && applicationForm.get('empAddressLine2')?.touched">Should
+                      not be more than 255 characters</small>
+                  </div>
+                </div>
+
+
+                <div class="form-group row pt-2">
+                  <label for="empCity" class="col-sm-3 col-form-label">City</label>
+                  <div class="col-sm-9">
+                    <input type="text"
+                      [ngClass]="{errorBox:this.applicationForm.get('empCity')?.invalid && this.applicationForm.get('empCity')?.touched}"
+                      class="form-control class-1" id="empCity" placeholder="City" formControlName="empCity">
+                    <div class="class-1"
+                      *ngIf="applicationForm.get('empCity')?.invalid && applicationForm.get('empCity')?.touched">
+                      <small class="text-danger" *ngIf="applicationForm.get('empCity')?.errors?.required">Required</small>
+                      <small class="text-danger" *ngIf="applicationForm.get('empCity')?.errors?.maxlength">Should
+                        not be more than 255 characters</small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group row pt-2">
+                  <label for="empState" class="col-sm-3 col-form-label">State</label>
+                  <div class="col-sm-9">
+                    <input type="text"
+                      [ngClass]="{errorBox:this.applicationForm.get('empState')?.invalid && this.applicationForm.get('empState')?.touched}"
+                      class="form-control class-1" id="empState" placeholder="State" formControlName="empState">
+                    <div class="class-1"
+                      *ngIf="applicationForm.get('empState')?.invalid && applicationForm.get('empState')?.touched">
+                      <small class="text-danger" *ngIf="applicationForm.get('empState')?.errors?.required">Required</small>
+                      <small class="text-danger" *ngIf="applicationForm.get('empState')?.errors?.maxlength">Should
+                        not be more than 255 characters</small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group row pt-2 pb-2">
+                  <label for="empPostalCode" class="col-sm-3 col-form-label">Postal Code</label>
+                  <div class="col-sm-9">
+                    <input type="text"
+                      [ngClass]="{errorBox:this.applicationForm.get('empPostalCode')?.invalid && this.applicationForm.get('empPostalCode')?.touched}"
+                      class="form-control class-1" id="empPostalCode" placeholder="Postal Code"
+                      formControlName="empPostalCode">
+                    <div class="class-1" *ngIf="applicationForm.get('empPostalCode')?.invalid">
+                      <small class="text-danger"
+                        *ngIf="applicationForm.get('empPostalCode')?.errors?.required  && applicationForm.get('empPostalCode')?.touched">Required</small>
+                      <small class="text-danger" *ngIf="applicationForm.get('empPostalCode')?.errors?.pattern">Should
+                        contain
+                        exactly 5 digits</small>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
-  </div>
-  <div class="col p-2 class-2">
-      <div class="form-group row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">Address Line 2</label>
-        <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Address Line 2" formControlName="addressLine2">
+
+      <div class="row p-3">
+        <div class="col-8"></div>
+        <div class="col-3">
+          <div class="row">
+            <div class="col-12">
+              <a type="button" href="./" class="btn btn-danger p-3 m-3 bt-5">Cancel</a>
+              <button type="submit" class="btn btn-primary p-3 m-3 bt-5">Submit</button>
+            </div>
+          </div>
         </div>
       </div>
+
+    </form>
   </div>
 
-  </div>
-
-  <div class="row">
-
-  <div class="col p-2 class-1">
-      <div class="form-group row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">Last Name </label>
-        <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Last Name" formControlName="lastName">
-        </div>
-      </div>
-  </div>
-<div class="col p-2 class-2">
-      <div class="form-group row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">City</label>
-        <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="City" formControlName="city">
-        </div>
-      </div>
-  </div>
-
-  </div>
-
-  <div class="row">
-
-  <div class="col p-2 class-1">
-     <div class="form-group row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">DOB</label>
-        <div class="col-sm-8">
-        <input type="date" class="form-control class-1" id="autoSizingInput" placeholder="DOB" formControlName="dateOfBirth" >
-        </div>
-      </div>
-  </div>
-<div class="col p-2 class-2">
-      <div class="form-group row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">State</label>
-        <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="State" formControlName="state">
-        </div>
-      </div>
-  </div>
-
-  </div>
-  <div class="row">
-
-  <div class="col p-2 class-1">
-      <div class="form-group row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">Marital Status</label>
-        <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Marital Status" formControlName="maritalStatus">
-        </div>
-      </div>
-  </div>
-<div class="col p-2 class-2">
-      <div class="form-group row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">Postal Code</label>
-        <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Postal Code" formControlName="postalCode">
-        </div>
-      </div>
-  </div>
-
-  </div>
-
-  <div class="row">
-
-  <div class="col p-2 class-1">
-      <div class="form-group row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">SSN Number</label>
-        <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="SSN Number" formControlName="ssn">
-        </div>
-      </div>
-  </div>
-<div class="col p-2 class-2">
-      <div class="form-group row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">Home Phone</label>
-        <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Home Phone" formControlName="homeNo">
-        </div>
-      </div>
-  </div>
-
-  </div>
-
-  <div class="row">
-
-  <div class="col p-2 class-1">
-      <div class="form-group row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">Loan Amount</label>
-        <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Loan Amount" formControlName="amount">
-        </div>
-      </div>
-  </div>
-<div class="col p-2 class-2">
-      <div class="form-group row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">Office Phone</label>
-        <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Office Phone" formControlName="officeNo">
-        </div>
-      </div>
-  </div>
-
-  </div>
-
-  <div class="row">
-
-  <div class="col p-2 class-1">
-      <div class="form-group row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">Loan Purpose</label>
-        <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Loan Purpose" formControlName="purpose">
-        </div>
-      </div>
-  </div>
-<div class="col p-2 class-2">
-      <div class="form-group row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">Mobile</label>
-        <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Mobile" formControlName="mobileNo">
-        </div>
-      </div>
-  </div>
-
-  </div>
-
-  <div class="row">
-
-  <div class="col p-2 class-1">
-  <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Description</label>
-      <div class="col-sm-8">
-      <textarea class="form-control class-1" id="autoSizingInput" rows="3" formControlName="description"></textarea>
-    </div>
-  </div>
-  </div>
-
-<div class="col p-2 class-2">
-      <div class="form-group row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">E-Mail</label>
-        <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="E-mail" formControlName="email">
-        </div>
-      </div>
-  </div>
-
-  </div>
-  <br/>
-  <br/>
-  <h4 class="p-3">Employer Details</h4>
-  <div class="row">
-
-  <div class="col p-2 class-1">
-      <div class="form-group row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">Employer Name</label>
-        <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Name" formControlName="currEmployerName">
-        </div>
-      </div>
-  </div>
-<div class="col p-2 class-2">
-      <div class="form-group row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">Work Experience</label>
-        <div class="col-sm-2">
-          <input type="text" class="form-control" id="inputEmail3" placeholder="Year" formControlName="workExpYear">
-        </div>
-        <div class="col-sm-2">
-           <input type="text" class="form-control" id="inputEmail3" placeholder="Months" formControlName="workExpMonth">
-        </div>
-      </div>
-  </div>
-
-  </div>
-
-<div class="row">
-
-  <div class="col p-2 class-1">
-      <div class="form-group row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">Annual Salary</label>
-        <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Annual Salary" formControlName="annualSalary">
-        </div>
-      </div>
-  </div>
-<div class="col p-2 class-2">
-      <div class="form-group row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">Designation</label>
-        <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Designation" formControlName="designation">
-        </div>
-      </div>
-  </div>
-
-  </div>
-
-
-<div class="row">
-
-  <div class="col p-2 class-1">
-      <div class="form-group row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">Address Line 1</label>
-        <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Address Line 1" formControlName="empAddressLine1">
-        </div>
-      </div>
-  </div>
-<div class="col p-2 class-2">
-
-  </div>
-
-  </div>
-<div class="row">
-
-  <div class="col p-2 class-1">
-      <div class="form-group row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">Address Line 2</label>
-        <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Address Line 2" formControlName="empAddressLine2">
-        </div>
-      </div>
-  </div>
-<div class="col p-2 class-2">
-
-  </div>
-
-  </div>
-<div class="row">
-
-  <div class="col p-2 class-1">
-      <div class="form-group row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">City</label>
-        <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="City" formControlName="empCity">
-        </div>
-      </div>
-  </div>
-<div class="col p-2 class-2">
-
-  </div>
-
-  </div>
-<div class="row">
-
-  <div class="col p-2 class-1">
-      <div class="form-group row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">State</label>
-        <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="State" formControlName="empState">
-        </div>
-      </div>
-  </div>
-<div class="col p-2 class-2">
-
-  </div>
-
-  </div>
-
-<div class="row">
-
-  <div class="col p-2 class-1">
-      <div class="form-group row">
-        <label for="staticEmail" class="col-sm-2 col-form-label">Postal Code</label>
-        <div class="col-sm-8">
-        <input type="text" class="form-control class-1" id="autoSizingInput" placeholder="Postal Code" formControlName="empPostalCode">
-        </div>
-      </div>
-  </div>
-<div class="col p-2 class-2">
-
-  </div>
-
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <a type="button" href="./" class="btn btn-primary p-3 m-3 bt-5">Cancel</a>
-      <button type="submit" class="btn btn-primary p-3 m-3 bt-5">Submit</button>
-    </div>
-  </div>
-  </form>
 </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder} from "@angular/forms";
+import { FormBuilder, Validators, ValidatorFn, ValidationErrors, AbstractControl} from "@angular/forms";
 import { SubmitService } from '../services/submit-service.service';
-
+import { SubmitApplicationValidators } from "./submit-application.validators";
 
 @Component({
   selector: 'app-submit-application',
@@ -10,39 +10,41 @@ import { SubmitService } from '../services/submit-service.service';
 })
 export class SubmitApplicationComponent {
   userData : {[id: string]:string};
-  constructor(private fb : FormBuilder, private ss :SubmitService) { 
+  
+
+  constructor(private fb : FormBuilder, private ss :SubmitService, private valids: SubmitApplicationValidators) { 
     this.userData = {"workExp":""};
   }
 
   applicationForm = this.fb.group({
-    firstName: [''],
-    addressLine1 : [''],
-    middleName:  [''],
-    addressLine2: [''],
-    lastName : [''],
-    city : [''],
-    dateOfBirth : [''],
-    state : [''],
-    maritalStatus : [''],
-    postalCode : [''],
-    ssn : [''],
-    homeNo : [''],
-    amount : [''],
-    officeNo : [''],
-    purpose : [''],
-    mobileNo : [''],
+    firstName: ['',[Validators.required,Validators.maxLength(255)]],
+    addressLine1 : ['',[Validators.required,Validators.maxLength(255)]],
+    middleName:  ['',Validators.maxLength(255)],
+    addressLine2: ['',Validators.maxLength(255)],
+    lastName : ['',[Validators.required,Validators.maxLength(255)]],
+    city : ['',[Validators.required,Validators.maxLength(255)]],
+    dateOfBirth : ['',[Validators.required]],
+    state : ['',[Validators.required,Validators.maxLength(255)]],
+    maritalStatus : ['',[Validators.required]],
+    postalCode : ['',[Validators.required,Validators.pattern("^[0-9]{5}$")]],
+    ssn : ['',[Validators.required]],
+    homeNo : ['',[Validators.required,Validators.pattern("^[0-9]{10}$")]],
+    amount : ['',[Validators.required,Validators.pattern("^[0-9]+(\.[0-9])?$")]],
+    officeNo : ['',Validators.pattern("^[0-9]{10}$")],
+    purpose : ['',[Validators.required]],
+    mobileNo : ['',[Validators.required,Validators.pattern("^[0-9]{10}$")]],
     description : [''],
-    email : [''],
-    currEmployerName : [''],
-    workExpYear : [''],
-    workExpMonth : [''],
-    annualSalary : [''],
-    designation : [''],
-    empAddressLine1 : [''],
-    empAddressLine2 : [''],
-    empCity : [''],
-    empState : [''],
-    empPostalCode : ['']
+    email : ['',[Validators.required,Validators.email]],
+    currEmployerName : ['',[Validators.required,Validators.maxLength(255)]],
+    workExpYear : ['',[Validators.required,Validators.pattern("^[0-9]*$")]],
+    workExpMonth : ['',[Validators.required,Validators.pattern("^[0-9]*$"),Validators.max(12)]],
+    annualSalary : ['',[Validators.required,Validators.pattern("^[0-9]+(\.[0-9])?$")]],
+    designation : ['',Validators.maxLength(255)],
+    empAddressLine1 : ['',[Validators.required,Validators.maxLength(255)]],
+    empAddressLine2 : ['',Validators.maxLength(255)],
+    empCity : ['',[Validators.required,Validators.maxLength(255)]],
+    empState : ['',[Validators.required,Validators.maxLength(255)]],
+    empPostalCode : ['',[Validators.required,Validators.pattern("^[0-9]{5}$")]],
     
 
   });
@@ -63,4 +65,5 @@ export class SubmitApplicationComponent {
       error => console.error("Error!",error)
     )
   }
+
 }
