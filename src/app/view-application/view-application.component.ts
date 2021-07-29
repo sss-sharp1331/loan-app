@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
 import { HttpClient } from '@angular/common/http';
+import { RetrieveService } from '../services/retrieve.service';
 
 @Component({
   selector: 'app-view-application',
@@ -10,19 +11,11 @@ import { HttpClient } from '@angular/common/http';
 export class ViewApplicationComponent implements OnInit{
 
   applications:any;
-  url:string;
-
-  constructor(private http:HttpClient) {
-    this.url = "http://localhost:8080";
-    
-    let promise = new Promise<void>( (resolve,request)=>{
-      this.http.get(this.url+"/application/all").toPromise().then(
-        res => {
-          resolve();
-          this.applications = res;
-        }
+  constructor(private http:HttpClient,private rs : RetrieveService) {
+      this.rs.getAllApplications().subscribe(
+        response => this.applications = response,
+        error=> console.error("Failed to retrieve data! Error: "+error)
       )
-    })
   }
 
   ngOnInit(): void {

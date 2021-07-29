@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ApplicationDetailsComponent } from './application-details/application-details.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     SubmitApplicationComponent,
     ViewApplicationComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ApplicationDetailsComponent
   ],
   imports: [
     BrowserModule,
