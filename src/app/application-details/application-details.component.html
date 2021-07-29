@@ -1,0 +1,365 @@
+<h1 class="p-3">View Application</h1>
+
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <table class="table borderless">
+            <tbody>
+                <tr class="p-3">
+                    <td>Application ID</td>
+                    <td>{{applicationDetails['regId']+1}}</td>
+                </tr>
+                <tr class="p-3">
+                    <td>Application Status</td>
+                    <td>{{applicationDetails['status']}}</td>
+                </tr>
+                <tr>
+                    <td>Score</td>
+                    <td><i>Score</i></td>
+                </tr>
+                <tr>
+                    <td>Decline Reason</td>
+                    <td><i>Decline Reason</i></td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p class="p-3 pb-0">Original Application</p>
+            <hr style="width:99%;margin-left:0.5%">
+        </div>
+    </div>
+    <div class="col-4"></div>
+</div>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <form class="form" [formGroup]="applicationForm" *ngIf="this.gotData">
+            <fieldset>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group row p-3">
+                            <label for="firstName" class="col-sm-3 col-form-label">First Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control class-1" id="firstName"
+                                    formControlName="firstName">
+                            </div>
+                        </div>
+
+                        <div class="form-group row p-3">
+                            <label for="middleName" class="col-sm-3 col-form-label">Middle Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control class-1" id="middleName" placeholder="Middle Name"
+                                     formControlName="middleName">
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row p-3">
+                            <label for="lastName" class="col-sm-3 col-form-label">Last Name </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control class-1" id="lastName" placeholder="Last Name"
+                                   formControlName="lastName"> 
+                                
+                            </div>
+                        </div>
+
+                        <div class="form-group row p-3">
+                            <label for="dateOfBirth" class="col-sm-3 col-form-label">DOB</label>
+                            <div class="col-sm-9">
+                                <input type="date" class="form-control class-1" id="dateOfBirth" placeholder="DOB"
+                                    formControlName="dateOfBirth" >
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row p-3">
+                            <label for="maritalStatus" class="col-sm-3 col-form-label">Marital Status</label>
+                            <div class="col-sm-9">
+                                <select class="form-select class-1" id="maritalStatus" id="autoSizingInput"
+                                    formControlName="maritalStatus">
+                                    <option value="" selected hidden>Choose one</option>
+                                    <option>Single</option>
+                                    <option>Married</option>
+                                    <option>Separated</option>
+                                    <option>Divorced</option>
+                                    <option>Widowed</option>
+                                </select>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row p-3">
+                            <label for="ssn" class="col-sm-3 col-form-label">SSN Number</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control class-1" id="autoSizingInput"
+                                    placeholder="SSN Number" formControlName="ssn" id="ssn" >
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row p-3">
+                            <label for="amount" class="col-sm-3 col-form-label">Loan Amount</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control class-1" id="autoSizingInput"
+                                    placeholder="Loan Amount" formControlName="amount" id="amount">
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row p-3">
+                            <label for="purpose" class="col-sm-3 col-form-label">Loan Purpose</label>
+                            <div class="col-sm-9">
+                                <select type="text" class="form-select class-1" id="autoSizingInput"
+                                    placeholder="Loan Purpose" formControlName="purpose">
+                                    <option selected hidden value="">Choose one</option>
+                                    <option>Debt</option>
+                                    <option>Educational Loan</option>
+                                    <option>Personal Loan</option>
+                                    <option>Home Loan</option>
+                                </select>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-5">
+                        <div class="row pb-1">
+
+                            <div class="col-12"><b>Address</b></div>
+                            <div class="col-12" style="border: 2px solid #a1a1a181;border-radius: 10px;">
+
+                                <div class="form-group row pt-2">
+                                    <label for="addressLine1" class="col-sm-3 col-form-label">Address Line 1</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control class-1" id="addressLine1"
+                                            placeholder="Address Line 1" formControlName="addressLine1">
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group row pb-1">
+                                    <label for="addressLine2" class="col-sm-3 col-form-label">Address Line 2</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control class-1" id="addressLine2"
+                                            placeholder="Address Line 2" formControlName="addressLine2">
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group row pb-1">
+                                    <label for="city" class="col-sm-3 col-form-label">City</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control class-1" id="city" placeholder="City"
+                                            formControlName="city">
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group row pb-1">
+                                    <label for="state" class="col-sm-3 col-form-label">State</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control class-1" id="state" placeholder="State"
+                                            formControlName="state">
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group row pb-2">
+                                    <label for="postalCode" class="col-sm-3 col-form-label">Postal Code</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control class-1" id="postalCode"
+                                            placeholder="Postal Code" formControlName="postalCode">
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row pt-1 pb-1">
+                            <div class="col-12"><b>Contact Information</b></div>
+                            <div class="col-12" style="border: 2px solid #a1a1a181;border-radius: 10px;">
+
+                                <div class="form-group row pt-2">
+                                    <label for="homeNo" class="col-sm-3 col-form-label">Home Phone</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control class-1" id="homeNo"
+                                            placeholder="Home Phone" formControlName="homeNo">
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group row pt-1">
+                                    <label for="officeNo" class="col-sm-3 col-form-label">Office Phone</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control class-1" id="officeNo"
+                                            placeholder="Office Phone" formControlName="officeNo">
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group row pt-1">
+                                    <label for="mobileNo" class="col-sm-3 col-form-label">Mobile</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control class-1" id="mobileNo"
+                                            placeholder="Mobile" formControlName="mobileNo">
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group row pt-1 pb-1">
+                                    <label for="email" class="col-sm-3 col-form-label">E-Mail</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control class-1" id="email" placeholder="Email"
+                                            formControlName="email">
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row p-3">
+                    <div class="col-12">
+                        <div class="form-group row p-3">
+                            <label for="description" class="col-sm-2 col-form-label">Description</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control class-1" style="min-width: 100%" id="description" rows="3"
+                                    formControlName="description"
+                                    placeholder="Describe the reason why you are applying for the loan"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row p-3">
+                    <div class="col-12"><b>Employment Details</b></div>
+                    <div class="col-12" style="border: 2px solid #a1a1a181;border-radius: 10px;">
+                        <div class="row">
+                            <div class="col-sm-6">
+
+                                <div class="form-group row p-3">
+                                    <label for="currentEmployerName" class="col-sm-3 col-form-label">Employer Name</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control class-1" id="currentEmployerName"
+                                            placeholder="Employer Name" formControlName="currentEmployerName">
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group row p-3">
+                                    <label for="annualSalary" class="col-sm-3 col-form-label">Annual Salary</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control class-1" id="annualSalary"
+                                            placeholder="Annual Salary" formControlName="annualSalary">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+
+                                <div class="form-group row p-3">
+                                    <label for="workExpYear" class="col-sm-2 col-form-label">Work Experience</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="workExpYear" placeholder="Year"
+                                            formControlName="workExpYear">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="workExpMonth" placeholder="Months"
+                                            formControlName="workExpMonth">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group row p-3">
+                                    <label for="designation" class="col-sm-3 col-form-label">Designation</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control class-1" id="designation"
+                                            placeholder="Designation" formControlName="designation">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row p-3">
+                            <div class="row">
+                                <div class="col-12"><b>Address</b></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <div class="col-9">
+
+                                    <div class="form-group row pt-2">
+                                        <label for="addressLine1" class="col-sm-3 col-form-label">Address Line 1</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control class-1" id="empAddressLine1"
+                                                placeholder="Address Line 1" formControlName="empAddressLine1">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row pt-2">
+                                        <label for="empAddressLine2" class="col-sm-3 col-form-label">Address Line
+                                            2</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control class-1" id="empAddressLine2"
+                                                placeholder="Address Line 2" formControlName="empAddressLine2">
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group row pt-2">
+                                        <label for="empCity" class="col-sm-3 col-form-label">City</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control class-1" id="empCity"
+                                                placeholder="City" formControlName="empCity">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row pt-2">
+                                        <label for="empState" class="col-sm-3 col-form-label">State</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control class-1" id="empState"
+                                                placeholder="State" formControlName="empState">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row pt-2 pb-2">
+                                        <label for="empPostalCode" class="col-sm-3 col-form-label">Postal Code</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control class-1" id="empPostalCode"
+                                                placeholder="Postal Code" formControlName="empPostalCode">
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+
+        </form>
+    </div>
+    <div class="col-1"></div>
+
+    <div class="row">
+        <div class="col-10"></div>
+        <div class="col-2">
+            <a type="button" (click) = "this.goBack()" class="btn btn-danger p-3 m-3 bt-5">Back</a>
+        </div>
+    </div>
+
+
+</div>

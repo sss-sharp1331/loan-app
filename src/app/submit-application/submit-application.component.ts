@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, ValidatorFn, ValidationErrors, AbstractControl} from "@angular/forms";
 import { SubmitService } from '../services/submit-service.service';
-import { SubmitApplicationValidators } from "./submit-application.validators";
 
 @Component({
   selector: 'app-submit-application',
@@ -12,7 +11,7 @@ export class SubmitApplicationComponent {
   userData : {[id: string]:string};
   
 
-  constructor(private fb : FormBuilder, private ss :SubmitService, private valids: SubmitApplicationValidators) { 
+  constructor(private fb : FormBuilder, private ss :SubmitService) { 
     this.userData = {"workExp":""};
   }
 
@@ -35,7 +34,7 @@ export class SubmitApplicationComponent {
     mobileNo : ['',[Validators.required,Validators.pattern("^[0-9]{10}$")]],
     description : [''],
     email : ['',[Validators.required,Validators.email]],
-    currEmployerName : ['',[Validators.required,Validators.maxLength(255)]],
+    currentEmployerName : ['',[Validators.required,Validators.maxLength(255)]],
     workExpYear : ['',[Validators.required,Validators.pattern("^[0-9]*$")]],
     workExpMonth : ['',[Validators.required,Validators.pattern("^[0-9]*$"),Validators.max(12)]],
     annualSalary : ['',[Validators.required,Validators.pattern("^[0-9]+(\.[0-9])?$")]],
@@ -56,9 +55,9 @@ export class SubmitApplicationComponent {
         this.userData[key] = this.applicationForm.get(key)?.value
       }else{
         this.userData.workExp =  this.userData.workExp+this.applicationForm.get(key)?.value;
+        if(key=="workExpYear") this.userData.workExp+="_"
       }
     });
-
 
     this.ss.register(this.userData).subscribe(
       response => console.log("Success!"+response),

@@ -295,17 +295,17 @@
             <div class="col-sm-6">
 
               <div class="form-group row p-3">
-                <label for="currEmployerName" class="col-sm-3 col-form-label">Employer Name</label>
+                <label for="currentEmployerName" class="col-sm-3 col-form-label">Employer Name</label>
                 <div class="col-sm-9">
                   <input type="text"
-                    [ngClass]="{errorBox:this.applicationForm.get('currEmployerName')?.invalid && this.applicationForm.get('currEmployerName')?.touched}"
-                    class="form-control class-1" id="currEmployerName" placeholder="Employer Name"
-                    formControlName="currEmployerName">
+                    [ngClass]="{errorBox:this.applicationForm.get('currentEmployerName')?.invalid && this.applicationForm.get('currentEmployerName')?.touched}"
+                    class="form-control class-1" id="currentEmployerName" placeholder="Employer Name"
+                    formControlName="currentEmployerName">
                   <div class="class-1"
-                    *ngIf="applicationForm.get('currEmployerName')?.invalid && applicationForm.get('currEmployerName')?.touched">
+                    *ngIf="applicationForm.get('currentEmployerName')?.invalid && applicationForm.get('currentEmployerName')?.touched">
                     <small class="text-danger"
-                      *ngIf="applicationForm.get('currEmployerName')?.errors?.required">Required</small>
-                    <small class="text-danger" *ngIf="applicationForm.get('currEmployerName')?.errors?.maxlength">Should
+                      *ngIf="applicationForm.get('currentEmployerName')?.errors?.required">Required</small>
+                    <small class="text-danger" *ngIf="applicationForm.get('currentEmployerName')?.errors?.maxlength">Should
                       not be more than 255 characters</small>
                   </div>
                 </div>
@@ -377,7 +377,7 @@
           </div>
           <div class="row p-3">
             <div class="row">
-              <div class="col-12">Address</div>
+              <div class="col-12"><b>Address</b></div>
             </div>
             <div class="row">
               <div class="col-1"></div>
@@ -470,12 +470,12 @@
       </div>
 
       <div class="row p-3">
-        <div class="col-8"></div>
+        <div class="col-8"><b  *ngIf="applicationForm.invalid && applicationForm.touched" class="text-danger">Please provide valid details</b></div>
         <div class="col-3">
           <div class="row">
             <div class="col-12">
               <a type="button" href="./" class="btn btn-danger p-3 m-3 bt-5">Cancel</a>
-              <button type="submit" class="btn btn-primary p-3 m-3 bt-5">Submit</button>
+              <button type="submit" [disabled]="applicationForm.invalid" class="btn btn-primary p-3 m-3 bt-5">Submit</button>
             </div>
           </div>
         </div>

@@ -1,5 +1,4 @@
-
-<h1 class="p-3">Approved Applications</h1>
+<h1 class="p-3">Applications</h1>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -10,8 +9,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor = "let application of this.applications;index as i">
-      <td>{{i+1}}</td>
+    <tr *ngFor="let application of this.applications;index as i">
+      <td><a [routerLink]="['/view-application',application['id']]" style="text-decoration: none;">{{i+1}}</a></td>
       <td>{{application["firstName"]+" "+application["lastName"]}}</td>
       <td>{{application["date"]}}</td>
       <td>{{application["status"]}}</td>
