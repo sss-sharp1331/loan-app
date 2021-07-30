@@ -9,11 +9,13 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private toastr :ToastrService) { }
+  constructor(private toastr :ToastrService) { 
+    if(history.state.success==="OK"){this.showToastr();history.state.success=undefined}
+  }
 
   ngOnInit(): void {
   }
   showToastr(){
-    this.toastr.success()
+    this.toastr.success("Application submitted Successfully!")
   }
 }
