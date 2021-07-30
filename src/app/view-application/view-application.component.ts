@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import axios from 'axios';
 import { HttpClient } from '@angular/common/http';
 import { RetrieveService } from '../services/retrieve.service';
 

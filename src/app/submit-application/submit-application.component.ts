@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, ValidatorFn, ValidationErrors, AbstractControl} from "@angular/forms";
+import { Router } from '@angular/router';
 import { SubmitService } from '../services/submit-service.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class SubmitApplicationComponent {
   userData : {[id: string]:string};
   
 
-  constructor(private fb : FormBuilder, private ss :SubmitService) { 
+  constructor(private fb : FormBuilder, private ss :SubmitService,private router:Router) { 
     this.userData = {"workExp":""};
   }
 
@@ -60,7 +61,7 @@ export class SubmitApplicationComponent {
     });
 
     this.ss.register(this.userData).subscribe(
-      response => console.log("Success!"+response),
+      response => {console.log("Success!"+response);this.router.navigate([''],{state:{success:"OK"}})},
       error => console.error("Error!",error)
     )
   }
