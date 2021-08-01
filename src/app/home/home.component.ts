@@ -10,7 +10,11 @@ import { ToastrService } from 'ngx-toastr';
 export class HomeComponent implements OnInit {
 
   constructor(private toastr :ToastrService) { 
-    if(history.state.success==="OK"){this.showToastr();history.state.success=undefined}
+
+    if(history.state.success==="OK"){this.showToastr();
+      let p = history.state
+      p.success = undefined
+      history.replaceState(p,"")}
   }
 
   ngOnInit(): void {
