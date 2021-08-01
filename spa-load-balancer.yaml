@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-name-loadbalancer
+spec:
+  type: LoadBalancer
+  selector:
+    app: loan-app
+  ports:
+    - name: http
+      protocol: TCP
+      port: 4200
+      targetPort: 4200
